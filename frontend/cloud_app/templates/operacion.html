@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% block title %}Operaciones del Sistema - Tecnologías Chapinas S.A.{% endblock %}
+
+{% block content %}
+<div class="text-center mb-4">
+    <h2><i class="bi bi-tools"></i> Operaciones del Sistema</h2>
+    <p class="text-muted">Gestiona y consulta los datos del sistema</p>
+</div>
+
+<div class="row g-4">
+    <!-- Inicializar Sistema -->
+    <div class="col-md-6">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <i class="bi bi-exclamation-triangle-fill"></i> Inicializar Sistema
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <strong>¡ADVERTENCIA!</strong> Esta acción eliminará todos los datos del sistema:
+                    recursos, categorías, configuraciones, clientes, instancias y facturas.
+                </p>
+                <form method="post" action="{% url 'cloud_app:inicializar' %}" 
+                      onsubmit="return confirm('¿Estás seguro de que deseas eliminar TODOS los datos? Esta acción no se puede deshacer.');">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Inicializar Sistema
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Consultar Datos -->
+    <div class="col-md-6">
+        <div class="card border-primary">
+            <div class="card-header bg-primary text-white">
+                <i class="bi bi-search"></i> Consultar Datos
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Visualiza toda la información almacenada en el sistema: recursos, 
+                    categorías, configuraciones, clientes e instancias.
+                </p>
+                <a href="{% url 'cloud_app:consultar' %}" class="btn btn-primary">
+                    <i class="bi bi-eye"></i> Ver Datos del Sistema
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crear Nuevos Datos -->
+    <div class="col-md-6">
+        <div class="card border-success">
+            <div class="card-header bg-success text-white">
+                <i class="bi bi-plus-circle-fill"></i> Crear Nuevos Datos
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Crea nuevos recursos, categorías, configuraciones, clientes e instancias 
+                    de forma individual.
+                </p>
+                <a href="{% url 'cloud_app:crear' %}" class="btn btn-success">
+                    <i class="bi bi-plus-lg"></i> Crear Datos
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Proceso de Facturación -->
+    <div class="col-md-6">
+        <div class="card border-info">
+            <div class="card-header bg-info text-white">
+                <i class="bi bi-receipt"></i> Proceso de Facturación
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Genera facturas para los clientes basadas en el consumo de recursos 
+                    en un período específico.
+                </p>
+                <a href="{% url 'cloud_app:facturacion' %}" class="btn btn-info text-white">
+                    <i class="bi bi-calculator"></i> Gestionar Facturas
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reportes PDF -->
+    <div class="col-md-6">
+        <div class="card border-warning">
+            <div class="card-header bg-warning text-dark">
+                <i class="bi bi-file-earmark-pdf"></i> Reportes en PDF
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Genera reportes en PDF con detalles de facturas y análisis de ventas 
+                    por categorías y recursos.
+                </p>
+                <a href="{% url 'cloud_app:reportes' %}" class="btn btn-warning text-dark">
+                    <i class="bi bi-file-pdf"></i> Generar Reportes
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Volver al Inicio -->
+    <div class="col-md-6">
+        <div class="card border-secondary">
+            <div class="card-header bg-secondary text-white">
+                <i class="bi bi-house-fill"></i> Menú Principal
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Regresa al menú principal del sistema.
+                </p>
+                <a href="{% url 'cloud_app:index' %}" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Volver al Inicio
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

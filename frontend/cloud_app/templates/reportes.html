@@ -1,0 +1,28 @@
+reportes.html
+{% extends 'cloud_app/base.html' %}
+
+{% block content %}
+<div class="text-center mb-4">
+    <h2><i class="bi bi-graph-up"></i> Reportes de Consumo de Recursos</h2>
+    <p class="text-muted">Visualiza los reportes detallados de consumo por cliente e instancia</p>
+</div>
+<div class="row g-4">
+    <!-- Reporte de Facturas por Cliente -->
+    <div class="col-md-6">
+        <div class="card border-info">
+            <div class="card-header bg-info text-white">
+                <i class="bi bi-file-earmark-pdf-fill"></i> Reporte de Facturas por Cliente
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Genera un reporte PDF detallado de todas las facturas emitidas a un cliente específico.
+                </p>
+                <form method="post" action="{% url 'cloud_app:reporte_facturas_cliente' %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="cliente_id" class="form-label">Selecciona el Cliente</label>
+                        <select id="cliente_id" name="cliente_id" class="form-select" required>
+                            <option value="" disabled selected>-- Selecciona un cliente --</option>
+                            {% for cliente in clientes %}
+                                <option value="{{ cliente.id }}">{{ cliente.nombre }} (NIT: {{ cliente.nit }})</option>
+                            {% endfor %}    

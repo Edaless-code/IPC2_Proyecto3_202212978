@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Enviar Consumos - Tecnologías Chapinas S.A.{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-bar-chart-fill"></i> Enviar Mensaje de Consumo
+            </div>
+            <div class="card-body">
+                <p class="text-muted">
+                    Sube un archivo XML con los consumos de recursos de las instancias registradas.
+                </p>
+                
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="archivo_xml" class="form-label">
+                            <i class="bi bi-file-earmark-code"></i> Archivo XML de Consumos
+                        </label>
+                        <input type="file" 
+                               class="form-control" 
+                               id="archivo_xml" 
+                               name="archivo_xml" 
+                               accept=".xml"
+                               required>
+                        <div class="form-text">
+                            Selecciona un archivo XML con los consumos a registrar.
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <i class="bi bi-cloud-upload"></i> Procesar Consumos
+                        </button>
+                        <a href="{% url 'cloud_app:index' %}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Volver
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Información sobre el formato -->
+        <div class="card mt-4">
+            <div class="card-header bg-success text-white">
+                <i class="bi bi-info-circle"></i> Formato del Archivo XML
+            </div>
+            <div class="card-body">
+                <h6>El archivo XML debe contener:</h6>
+                <ul>
+                    <li><strong>nitCliente:</strong> NIT del cliente propietario de la instancia</li>
+                    <li><strong>idInstancia:</strong> ID de la instancia que consumió recursos</li>
+                    <li><strong>tiempo:</strong> Tiempo de consumo en horas (puede tener decimales)</li>
+                    <li><strong>fechaHora:</strong> Fecha y hora del consumo (dd/mm/yyyy hh:mm)</li>
+                </ul>
+                
+                <h6 class="mt-3">Ejemplo de estructura:</h6>
+                <pre class="bg-light p-3 rounded"><code>&lt;listadoConsumos&gt;
+  &lt;consumo nitCliente="12345678-9" idInstancia="1"&gt;
+    &lt;tiempo&gt;24.5&lt;/tiempo&gt;
+    &lt;fechaHora&gt;15/01/2025 14:30&lt;/fechaHora&gt;
+  &lt;/consumo&gt;
+  &lt;consumo nitCliente="12345678-9" idInstancia="2"&gt;
+    &lt;tiempo&gt;12.75&lt;/tiempo&gt;
+    &lt;fechaHora&gt;20/01/2025 09:15&lt;/fechaHora&gt;
+  &lt;/consumo&gt;
+&lt;/listadoConsumos&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

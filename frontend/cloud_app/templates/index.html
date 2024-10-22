@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio - Tecnologías Chapinas S.A.{% endblock %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary">
+        <i class="bi bi-cloud-fill"></i> Sistema de Gestión de Nube
+    </h1>
+    <p class="lead text-muted">Tecnologías Chapinas S.A.</p>
+    <hr class="my-4">
+</div>
+
+<div class="row g-4">
+    <!-- Enviar Configuración -->
+    <div class="col-md-6 col-lg-4">
+        <a href="{% url 'cloud_app:configuracion' %}" class="text-decoration-none">
+            <div class="card menu-card text-center">
+                <div class="card-body">
+                    <i class="bi bi-upload text-primary"></i>
+                    <h5 class="card-title">Enviar Configuración</h5>
+                    <p class="card-text text-muted">
+                        Cargar archivo XML con recursos, categorías, configuraciones y clientes
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Enviar Consumos -->
+    <div class="col-md-6 col-lg-4">
+        <a href="{% url 'cloud_app:consumo' %}" class="text-decoration-none">
+            <div class="card menu-card text-center">
+                <div class="card-body">
+                    <i class="bi bi-bar-chart-fill text-success"></i>
+                    <h5 class="card-title">Enviar Consumos</h5>
+                    <p class="card-text text-muted">
+                        Registrar consumos de recursos de las instancias
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Operaciones -->
+    <div class="col-md-6 col-lg-4">
+        <a href="{% url 'cloud_app:operaciones' %}" class="text-decoration-none">
+            <div class="card menu-card text-center">
+                <div class="card-body">
+                    <i class="bi bi-tools text-warning"></i>
+                    <h5 class="card-title">Operaciones</h5>
+                    <p class="card-text text-muted">
+                        Consultar, crear y gestionar datos del sistema
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Facturación -->
+    <div class="col-md-6 col-lg-4">
+        <a href="{% url 'cloud_app:facturacion' %}" class="text-decoration-none">
+            <div class="card menu-card text-center">
+                <div class="card-body">
+                    <i class="bi bi-receipt text-info"></i>
+                    <h5 class="card-title">Facturación</h5>
+                    <p class="card-text text-muted">
+                        Generar facturas por consumo de recursos
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Reportes -->
+    <div class="col-md-6 col-lg-4">
+        <a href="{% url 'cloud_app:reportes' %}" class="text-decoration-none">
+            <div class="card menu-card text-center">
+                <div class="card-body">
+                    <i class="bi bi-file-earmark-pdf text-danger"></i>
+                    <h5 class="card-title">Reportes PDF</h5>
+                    <p class="card-text text-muted">
+                        Generar reportes de facturas y análisis de ventas
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Ayuda -->
+    <div class="col-md-6 col-lg-4">
+        <a href="{% url 'cloud_app:ayuda' %}" class="text-decoration-none">
+            <div class="card menu-card text-center">
+                <div class="card-body">
+                    <i class="bi bi-question-circle-fill text-secondary"></i>
+                    <h5 class="card-title">Ayuda</h5>
+                    <p class="card-text text-muted">
+                        Información del sistema y documentación
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- Información adicional -->
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-info-circle-fill"></i> Acerca del Sistema
+            </div>
+            <div class="card-body">
+                <p>
+                    Sistema integral de gestión de infraestructura en la nube que permite:
+                </p>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Administrar recursos de hardware y software</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Gestionar clientes e instancias</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Registrar consumos de recursos</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Facturación automática basada en uso</li>
+                    <li><i class="bi bi-check-circle-fill text-success"></i> Análisis de ventas y reportes detallados</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

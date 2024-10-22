@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Facturación - Tecnologías Chapinas S.A.{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <h2><i class="bi bi-receipt"></i> Proceso de Facturación</h2>
+    <p class="text-muted">Genera facturas basadas en el consumo de recursos</p>
+</div>
+
+<!-- Generar Facturas -->
+<div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+        <i class="bi bi-calculator"></i> Generar Nuevas Facturas
+    </div>
+    <div class="card-body">
+        <p>
+            Genera facturas para todos los clientes con consumos no facturados 
+            en el rango de fechas especificado.
+        </p>
+        <form method="post" action="{% url 'cloud_app:generar_facturas' %}">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="form-label">Fecha Inicio</label>
+                    <input type="text" name="fechaInicio" class="form-control" 
+                           placeholder="dd/mm/yyyy" value="01/01/2025" required>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Fecha Fin</label>
+                    <input type="text" name="fechaFin" class="form-control" 
+                           placeholder="dd/mm/yyyy" value="31/01/2025" required>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-receipt-cutoff"></i> Generar Facturas
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Facturas Existentes -->
+<div class="card">
+    <div class="card-header bg-success text-white">
+        <i class="bi bi-file-text"></i> Facturas Generadas ({{ facturas|length }})
+    </div>
+    <div class="card-body">
+        {% if facturas %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Cliente</th>
+                            <th>NIT</th>
+                            <th>Fecha</th>
+                            <th>Detalles</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for factura in facturas %}
+                        <tr>
+                            <td><strong>#{{ factura.numero }}</strong></td>
+                            <td>{{ factura.nombre_cliente }}</td>
+                            <td>{{ factura.nit_cliente }}</td>
+                            <td>{{ factura.fecha }}</td>
+                            <td>
+                                <span class="badge bg-info">
+                                    {{ factura.detalles|length }} instancia(s)
+                                </span>
+                            </td>
+                            <td class="fw-bold text-success">
+                                ${{ factura.total }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="alert alert-info">
+                <i class="bi bi-info-circle"></i> 
+                No hay facturas generadas aún. Utiliza el formulario de arriba para generar facturas.
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{% url 'cloud_app:operaciones' %}" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Volver a Operaciones
+    </a>
+    <a href="{% url 'cloud_app:reportes' %}" class="btn btn-info">
+        <i class="bi bi-file-pdf"></i> Ver Reportes
+    </a>
+</div>
+{% endblock %}

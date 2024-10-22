@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Enviar Configuración - Tecnologías Chapinas S.A.{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <i class="bi bi-upload"></i> Enviar Mensaje de Configuración
+            </div>
+            <div class="card-body">
+                <p class="text-muted">
+                    Sube un archivo XML con la configuración de recursos, categorías, configuraciones, 
+                    clientes e instancias del sistema.
+                </p>
+                
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="archivo_xml" class="form-label">
+                            <i class="bi bi-file-earmark-code"></i> Archivo XML
+                        </label>
+                        <input type="file" 
+                               class="form-control" 
+                               id="archivo_xml" 
+                               name="archivo_xml" 
+                               accept=".xml"
+                               required>
+                        <div class="form-text">
+                            Selecciona un archivo XML con el formato de configuración válido.
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="bi bi-cloud-upload"></i> Procesar Configuración
+                        </button>
+                        <a href="{% url 'cloud_app:index' %}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Volver
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Información sobre el formato -->
+        <div class="card mt-4">
+            <div class="card-header bg-info text-white">
+                <i class="bi bi-info-circle"></i> Formato del Archivo XML
+            </div>
+            <div class="card-body">
+                <h6>El archivo XML debe contener:</h6>
+                <ul>
+                    <li><strong>listaRecursos:</strong> Recursos de hardware y software</li>
+                    <li><strong>listaCategorias:</strong> Categorías con configuraciones</li>
+                    <li><strong>listaClientes:</strong> Clientes con sus instancias</li>
+                </ul>
+                
+                <h6 class="mt-3">Ejemplo de estructura:</h6>
+                <pre class="bg-light p-3 rounded"><code>&lt;archivoConfiguraciones&gt;
+  &lt;listaRecursos&gt;
+    &lt;recurso id="1"&gt;
+      &lt;nombre&gt;Memoria RAM&lt;/nombre&gt;
+      &lt;abreviatura&gt;RAM&lt;/abreviatura&gt;
+      &lt;metrica&gt;GiB&lt;/metrica&gt;
+      &lt;tipo&gt;Hardware&lt;/tipo&gt;
+      &lt;valorXhora&gt;0.75&lt;/valorXhora&gt;
+    &lt;/recurso&gt;
+  &lt;/listaRecursos&gt;
+  ...
+&lt;/archivoConfiguraciones&gt;</code></pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+
+{% block title %}Crear Nuevos Datos - Tecnologías Chapinas S.A.{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <h2><i class="bi bi-plus-circle-fill"></i> Crear Nuevos Datos</h2>
+    <p class="text-muted">Crea recursos, categorías, configuraciones, clientes e instancias</p>
+</div>
+
+<div class="row">
+    <!-- Crear Recurso -->
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <i class="bi bi-cpu"></i> Crear Recurso
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url 'cloud_app:crear_recurso' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="form-label">ID</label>
+                            <input type="number" name="id" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" name="nombre" class="form-control" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Abreviatura</label>
+                            <input type="text" name="abreviatura" class="form-control" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Métrica</label>
+                            <input type="text" name="metrica" class="form-control" placeholder="GiB, unidades, etc" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Tipo</label>
+                            <select name="tipo" class="form-select" required>
+                                <option value="Hardware">Hardware</option>
+                                <option value="Software">Software</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <label class="form-label">$/Hora</label>
+                            <input type="number" step="0.01" name="valorXhora" class="form-control" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">
+                        <i class="bi bi-plus-lg"></i> Crear Recurso
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crear Categoría -->
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <i class="bi bi-folder"></i> Crear Categoría
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url 'cloud_app:crear_categoria' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label class="form-label">ID</label>
+                            <input type="number" name="id" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" name="nombre" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Descripción</label>
+                            <input type="text" name="descripcion" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Carga de Trabajo</label>
+                            <input type="text" name="cargaTrabajo" class="form-control" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success mt-3">
+                        <i class="bi bi-plus-lg"></i> Crear Categoría
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crear Configuración -->
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header bg-warning text-dark">
+                <i class="bi bi-gear"></i> Crear Configuración
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url 'cloud_app:crear_configuracion' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-1">
+                            <label class="form-label">ID</label>
+                            <input type="number" name="id" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" name="nombre" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Descripción</label>
+                            <input type="text" name="descripcion" class="form-control" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">ID Categoría</label>
+                            <input type="number" name="idCategoria" class="form-control" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Recursos (JSON)</label>
+                            <input type="text" name="recursos" class="form-control" 
+                                   placeholder='{"1":4,"2":2}' required>
+                            <small class="text-muted">{"idRecurso":cantidad}</small>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-warning text-dark mt-3">
+                        <i class="bi bi-plus-lg"></i> Crear Configuración
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crear Cliente -->
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <i class="bi bi-person-plus"></i> Crear Cliente
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url 'cloud_app:crear_cliente' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="form-label">NIT</label>
+                            <input type="text" name="nit" class="form-control" 
+                                   placeholder="12345678-9" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" name="nombre" class="form-control" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Usuario</label>
+                            <input type="text" name="usuario" class="form-control" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Clave</label>
+                            <input type="password" name="clave" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Correo Electrónico</label>
+                            <input type="email" name="correoElectronico" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="form-label">Dirección</label>
+                            <input type="text" name="direccion" class="form-control" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info text-white mt-3">
+                        <i class="bi bi-plus-lg"></i> Crear Cliente
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Crear Instancia -->
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <i class="bi bi-server"></i> Crear Instancia
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url 'cloud_app:crear_instancia' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label class="form-label">ID</label>
+                            <input type="number" name="id" class="form-control" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">NIT Cliente</label>
+                            <input type="text" name="nitCliente" class="form-control" 
+                                   placeholder="12345678-9" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">ID Config</label>
+                            <input type="number" name="idConfiguracion" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" name="nombre" class="form-control" required>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Fecha Inicio</label>
+                            <input type="text" name="fechaInicio" class="form-control" 
+                                   placeholder="dd/mm/yyyy" required>
+                        </div>
+                        <div class="col-md-1">
+                            <label class="form-label">Estado</label>
+                            <select name="estado" class="form-select" required>
+                                <option value="Vigente">Vigente</option>
+                                <option value="Cancelada">Cancelada</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-dark mt-3">
+                        <i class="bi bi-plus-lg"></i> Crear Instancia
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancelar Instancia -->
+    <div class="col-md-12 mb-4">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <i class="bi bi-x-circle"></i> Cancelar Instancia
+            </div>
+            <div class="card-body">
+                <form method="post" action="{% url 'cloud_app:cancelar_instancia' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label class="form-label">NIT Cliente</label>
+                            <input type="text" name="nitCliente" class="form-control" 
+                                   placeholder="12345678-9" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">ID Instancia</label>
+                            <input type="number" name="idInstancia" class="form-control" required>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Fecha Final</label>
+                            <input type="text" name="fechaFinal" class="form-control" 
+                                   placeholder="dd/mm/yyyy" required>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-end">
+                            <button type="submit" class="btn btn-danger w-100">
+                                <i class="bi bi-x-lg"></i> Cancelar Instancia
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a href="{% url 'cloud_app:operaciones' %}" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Volver a Operaciones
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+# 📁 Estructura Completa del Proyecto
+
+## IPC2_Proyecto3_[TuCarnet]
+
+```
+IPC2_Proyecto3_[TuCarnet]/
+│
+├── backend/                          # Servicio 2 - API Flask
+│   ├── app.py                        # API REST principal
+│   ├── models.py                     # Clases POO (Recurso, Cliente, etc.)
+│   ├── xml_parser.py                 # Procesamiento XML y regex
+│   ├── database.py                   # Gestor de BD XML
+│   ├── requirements.txt              # Dependencias Python
+│   ├── test_api.py                   # Script de pruebas
+│   ├── ejemplo_configuracion.xml     # XML de prueba
+│   ├── ejemplo_consumos.xml          # XML de prueba
+│   ├── data/                         # Base de datos XML
+│   │   ├── recursos.xml
+│   │   └── clientes.xml
+│   └── README.md                     # Documentación backend
+│
+├── frontend/                         # Programa 1 - Django
+│   ├── manage.py                     # Gestor Django
+│   ├── tecnologias_chapinas/        # Proyecto Django
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── cloud_app/                    # Aplicación Django
+│   │   ├── views.py                  # Vistas (controladores)
+│   │   ├── urls.py                   # Rutas
+│   │   ├── templates/                # Templates HTML
+│   │   │   ├── base.html
+│   │   │   ├── index.html
+│   │   │   ├── configuracion.html
+│   │   │   ├── consumo.html
+│   │   │   ├── operaciones.html
+│   │   │   ├── reportes.html
+│   │   │   └── ayuda.html
+│   │   └── static/                   # CSS, JS, imágenes
+│   │       ├── css/
+│   │       ├── js/
+│   │       └── img/
+│   ├── requirements.txt              # Dependencias Django
+│   └── README.md                     # Documentación frontend
+│
+├── docs/                             # Documentación del proyecto
+│   ├── ensayo.pdf                    # Ensayo (4-7 páginas)
+│   ├── diagrama_clases.png           # Diagrama UML
+│   ├── modelo_datos.png              # Modelo ER/XSD
+│   └── manual_usuario.pdf            # Manual

@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<archivoConfiguraciones>
+  <listaRecursos>
+    <recurso id="1">
+      <nombre>Memoria RAM</nombre>
+      <abreviatura>RAM</abreviatura>
+      <metrica>GiB</metrica>
+      <tipo>Hardware</tipo>
+      <valorXhora>0.75</valorXhora>
+    </recurso>
+    <recurso id="2">
+      <nombre>Núcleos de procesamiento</nombre>
+      <abreviatura>vCPU</abreviatura>
+      <metrica>unidades</metrica>
+      <tipo>Hardware</tipo>
+      <valorXhora>1.20</valorXhora>
+    </recurso>
+    <recurso id="3">
+      <nombre>Almacenamiento SSD</nombre>
+      <abreviatura>SSD</abreviatura>
+      <metrica>GB</metrica>
+      <tipo>Hardware</tipo>
+      <valorXhora>0.10</valorXhora>
+    </recurso>
+    <recurso id="4">
+      <nombre>Sistema Operativo Linux</nombre>
+      <abreviatura>Linux</abreviatura>
+      <metrica>licencia</metrica>
+      <tipo>Software</tipo>
+      <valorXhora>0.50</valorXhora>
+    </recurso>
+    <recurso id="5">
+      <nombre>Base de Datos MySQL</nombre>
+      <abreviatura>MySQL</abreviatura>
+      <metrica>licencia</metrica>
+      <tipo>Software</tipo>
+      <valorXhora>2.00</valorXhora>
+    </recurso>
+  </listaRecursos>
+  
+  <listaCategorias>
+    <categoria id="1">
+      <nombre>Máquinas virtuales para desarrollo/pruebas</nombre>
+      <descripcion>Configuraciones optimizadas para entornos de desarrollo</descripcion>
+      <cargaTrabajo>Desarrollo y testing de aplicaciones web</cargaTrabajo>
+      <listaConfiguraciones>
+        <configuracion id="1">
+          <nombre>VM Básica Dev</nombre>
+          <descripcion>Máquina virtual básica para desarrollo</descripcion>
+          <recursosConfiguracion>
+            <recurso id="1">4</recurso>
+            <recurso id="2">2</recurso>
+            <recurso id="3">50</recurso>
+            <recurso id="4">1</recurso>
+          </recursosConfiguracion>
+        </configuracion>
+        <configuracion id="2">
+          <nombre>VM Dev con BD</nombre>
+          <descripcion>Máquina virtual con base de datos</descripcion>
+          <recursosConfiguracion>
+            <recurso id="1">8</recurso>
+            <recurso id="2">4</recurso>
+            <recurso id="3">100</recurso>
+            <recurso id="4">1</recurso>
+            <recurso id="5">1</recurso>
+          </recursosConfiguracion>
+        </configuracion>
+      </listaConfiguraciones>
+    </categoria>
+    
+    <categoria id="2">
+      <nombre>Máquinas virtuales económicas</nombre>
+      <descripcion>Configuraciones de bajo costo</descripcion>
+      <cargaTrabajo>Aplicaciones con carga baja</cargaTrabajo>
+      <listaConfiguraciones>
+        <configuracion id="3">
+          <nombre>VM Económica</nombre>
+          <descripcion>Configuración mínima de recursos</descripcion>
+          <recursosConfiguracion>
+            <recurso id="1">2</recurso>
+            <recurso id="2">1</recurso>
+            <recurso id="3">20</recurso>
+            <recurso id="4">1</recurso>
+          </recursosConfiguracion>
+        </configuracion>
+      </listaConfiguraciones>
+    </categoria>
+  </listaCategorias>
+  
+  <listaClientes>
+    <cliente nit="12345678-9">
+      <nombre>Empresa ABC S.A.</nombre>
+      <usuario>empresa_abc</usuario>
+      <clave>pass123</clave>
+      <direccion>Zona 10, Ciudad de Guatemala</direccion>
+      <correoElectronico>contacto@empresaabc.com</correoElectronico>
+      <listaInstancias>
+        <instancia id="1">
+          <idConfiguracion>1</idConfiguracion>
+          <nombre>Servidor Web Principal</nombre>
+          <fechaInicio>01/01/2025</fechaInicio>
+          <estado>Vigente</estado>
+        </instancia>
+        <instancia id="2">
+          <idConfiguracion>2</idConfiguracion>
+          <nombre>Servidor Base de Datos</nombre>
+          <fechaInicio>en Guatemala, 15/01/2025 iniciamos operaciones</fechaInicio>
+          <estado>Vigente</estado>
+        </instancia>
+      </listaInstancias>
+    </cliente>
+    
+    <cliente nit="98765432-1">
+      <nombre>Tecnología XYZ Ltda.</nombre>
+      <usuario>tech_xyz</usuario>
+      <clave>secure456</clave>
+      <direccion>Zona 4, Ciudad de Guatemala</direccion>
+      <correoElectronico>info@techxyz.com</correoElectronico>
+      <listaInstancias>
+        <instancia id="3">
+          <idConfiguracion>3</idConfiguracion>
+          <nombre>Servidor Testing</nombre>
+          <fechaInicio>10/01/2025</fechaInicio>
+          <estado>Vigente</estado>
+        </instancia>
+        <instancia id="4">
+          <idConfiguracion>1</idConfiguracion>
+          <nombre>Servidor Backup</nombre>
+          <fechaInicio>20/01/2025</fechaInicio>
+          <estado>Cancelada</estado>
+          <fechaFinal>25/01/2025</fechaFinal>
+        </instancia>
+      </listaInstancias>
+    </cliente>
+  </listaClientes>
+</archivoConfiguraciones>

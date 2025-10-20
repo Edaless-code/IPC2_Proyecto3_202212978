@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<listadoConsumos>
+  <consumo nitCliente="12345678-9" idInstancia="1">
+    <tiempo>24.5</tiempo>
+    <fechaHora>15/01/2025 14:30</fechaHora>
+  </consumo>
+  
+  <consumo nitCliente="12345678-9" idInstancia="1">
+    <tiempo>12.75</tiempo>
+    <fechaHora>20/01/2025 09:15</fechaHora>
+  </consumo>
+  
+  <consumo nitCliente="12345678-9" idInstancia="2">
+    <tiempo>48.0</tiempo>
+    <fechaHora>en la ciudad de Guatemala, 18/01/2025 08:00 se registró el uso</fechaHora>
+  </consumo>
+  
+  <consumo nitCliente="98765432-1" idInstancia="3">
+    <tiempo>5.5</tiempo>
+    <fechaHora>12/01/2025 16:45</fechaHora>
+  </consumo>
+  
+  <consumo nitCliente="98765432-1" idInstancia="3">
+    <tiempo>8.25</tiempo>
+    <fechaHora>22/01/2025 11:20</fechaHora>
+  </consumo>
+  
+  <consumo nitCliente="98765432-1" idInstancia="4">
+    <tiempo>3.0</tiempo>
+    <fechaHora>21/01/2025 13:00</fechaHora>
+  </consumo>
+</listadoConsumos>

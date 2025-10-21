@@ -1,0 +1,98 @@
+<clientes>
+  <cliente nit="12345678-9">
+    <nombre>Empresa ABC S.A.</nombre>
+    <usuario>empresa_abc</usuario>
+    <clave>pass123</clave>
+    <direccion>Zona 10, Ciudad de Guatemala</direccion>
+    <correoElectronico>contacto@empresaabc.com</correoElectronico>
+    <instancias>
+      <instancia id="1">
+        <idConfiguracion>1</idConfiguracion>
+        <nombre>Servidor Web Principal</nombre>
+        <fechaInicio>01/01/2025</fechaInicio>
+        <estado>Vigente</estado>
+        <consumos>
+          <consumo>
+            <tiempo>24.5</tiempo>
+            <fechaHora>15/01/2025 14:30</fechaHora>
+            <facturado>True</facturado>
+          </consumo>
+          <consumo>
+            <tiempo>12.75</tiempo>
+            <fechaHora>20/01/2025 09:15</fechaHora>
+            <facturado>True</facturado>
+          </consumo>
+        </consumos>
+      </instancia>
+      <instancia id="2">
+        <idConfiguracion>2</idConfiguracion>
+        <nombre>Servidor Base de Datos</nombre>
+        <fechaInicio>15/01/2025</fechaInicio>
+        <estado>Vigente</estado>
+        <consumos>
+          <consumo>
+            <tiempo>48.0</tiempo>
+            <fechaHora>18/01/2025 08:00</fechaHora>
+            <facturado>True</facturado>
+          </consumo>
+        </consumos>
+      </instancia>
+      <instancia id="100">
+        <idConfiguracion>1</idConfiguracion>
+        <nombre>Nueva Instancia Test</nombre>
+        <fechaInicio>25/01/2025</fechaInicio>
+        <estado>Vigente</estado>
+        <consumos />
+      </instancia>
+    </instancias>
+  </cliente>
+  <cliente nit="98765432-1">
+    <nombre>Tecnología XYZ Ltda.</nombre>
+    <usuario>tech_xyz</usuario>
+    <clave>secure456</clave>
+    <direccion>Zona 4, Ciudad de Guatemala</direccion>
+    <correoElectronico>info@techxyz.com</correoElectronico>
+    <instancias>
+      <instancia id="3">
+        <idConfiguracion>3</idConfiguracion>
+        <nombre>Servidor Testing</nombre>
+        <fechaInicio>10/01/2025</fechaInicio>
+        <estado>Vigente</estado>
+        <consumos>
+          <consumo>
+            <tiempo>5.5</tiempo>
+            <fechaHora>12/01/2025 16:45</fechaHora>
+            <facturado>True</facturado>
+          </consumo>
+          <consumo>
+            <tiempo>8.25</tiempo>
+            <fechaHora>22/01/2025 11:20</fechaHora>
+            <facturado>True</facturado>
+          </consumo>
+        </consumos>
+      </instancia>
+      <instancia id="4">
+        <idConfiguracion>1</idConfiguracion>
+        <nombre>Servidor Backup</nombre>
+        <fechaInicio>20/01/2025</fechaInicio>
+        <estado>Cancelada</estado>
+        <fechaFinal>25/01/2025</fechaFinal>
+        <consumos>
+          <consumo>
+            <tiempo>3.0</tiempo>
+            <fechaHora>21/01/2025 13:00</fechaHora>
+            <facturado>True</facturado>
+          </consumo>
+        </consumos>
+      </instancia>
+    </instancias>
+  </cliente>
+  <cliente nit="11111111-K">
+    <nombre>Nuevo Cliente S.A.</nombre>
+    <usuario>nuevo_cliente</usuario>
+    <clave>pass789</clave>
+    <direccion>Zona 15, Guatemala</direccion>
+    <correoElectronico>nuevo@cliente.com</correoElectronico>
+    <instancias />
+  </cliente>
+</clientes>

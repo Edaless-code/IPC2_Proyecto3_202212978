@@ -1,0 +1,44 @@
+<recursos>
+  <recurso id="1">
+    <nombre>Memoria RAM</nombre>
+    <abreviatura>RAM</abreviatura>
+    <metrica>GiB</metrica>
+    <tipo>Hardware</tipo>
+    <valorXhora>0.75</valorXhora>
+  </recurso>
+  <recurso id="2">
+    <nombre>Núcleos de procesamiento</nombre>
+    <abreviatura>vCPU</abreviatura>
+    <metrica>unidades</metrica>
+    <tipo>Hardware</tipo>
+    <valorXhora>1.2</valorXhora>
+  </recurso>
+  <recurso id="3">
+    <nombre>Almacenamiento SSD</nombre>
+    <abreviatura>SSD</abreviatura>
+    <metrica>GB</metrica>
+    <tipo>Hardware</tipo>
+    <valorXhora>0.1</valorXhora>
+  </recurso>
+  <recurso id="4">
+    <nombre>Sistema Operativo Linux</nombre>
+    <abreviatura>Linux</abreviatura>
+    <metrica>licencia</metrica>
+    <tipo>Software</tipo>
+    <valorXhora>0.5</valorXhora>
+  </recurso>
+  <recurso id="5">
+    <nombre>Base de Datos MySQL</nombre>
+    <abreviatura>MySQL</abreviatura>
+    <metrica>licencia</metrica>
+    <tipo>Software</tipo>
+    <valorXhora>2.0</valorXhora>
+  </recurso>
+  <recurso id="10">
+    <nombre>Balanceador de Carga</nombre>
+    <abreviatura>LB</abreviatura>
+    <metrica>unidad</metrica>
+    <tipo>Software</tipo>
+    <valorXhora>1.5</valorXhora>
+  </recurso>
+</recursos>
